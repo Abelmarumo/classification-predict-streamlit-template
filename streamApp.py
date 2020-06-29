@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 
 nlp = spacy.load('en')
 
+multinomial_logistic = joblib.load(open(os.path.join("resources/multinomial_logistic.plk"),"rb"))
+LinearSVC = joblib.load(open(os.path.join("resources/LinearSVC.plk"),"rb"))
 
 
 def get_keys(value,my_dic):
@@ -30,13 +32,13 @@ def main():
         if st.button("Classify"):
             st.text("Original tweet ::\n{}".format(tweet_text))
             if model_choice=="MLR":
-                predictor = joblib.load(open(os.path.join("resources/multinomial_logistic.plk"),"rb"))
-                prediction = predictor.predict([tweet_text])
+                # predictor = joblib.load(open(os.path.join("resources/multinomial_logistic.plk"),"rb"))
+                prediction = multinomial_logistic.predict([tweet_text])
                 ##st.write(prediction[0])
                 st.success(f"The tweet is categorized as {get_keys(prediction[0],labels)}")
             if model_choice=="LSVC":
-                predictor = joblib.load(open(os.path.join("resources/LinearSVC.plk"),"rb"))
-                prediction = predictor.predict([tweet_text])
+                # predictor = joblib.load(open(os.path.join("resources/LinearSVC.plk"),"rb"))
+                prediction = LinearSVC.predict([tweet_text])
                 ##st.write(prediction[0])
                 st.success(f"The tweet is categorized as {get_keys(prediction[0],labels)}")
 
