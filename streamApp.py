@@ -33,22 +33,24 @@ def main():
         task = ['Weighted f1 score graph','Weighted f1 score table']
         choice_M = st.sidebar.selectbox("Choose Activity",task)
         if choice_M=='Weighted f1 score graph':
-            image = Image.open('resources/imgs/weighted_score.PNG')
-            st.image(image, caption=None, width=None, use_column_width=False, clamp=False, channels='RGB', format='PNG')
+            with Image.open('resources/imgs/weighted_score.PNG') as im:
+                st.image(im, caption=None, width=None, use_column_width=False, clamp=False, channels='RGB', format='PNG')
         if choice_M=='Weighted f1 score table':
-            image = Image.open('resources/imgs/df_perfomance.PNG')
-            st.image(image, caption=None, width=None, use_column_width=False, clamp=False, channels='RGB', format='PNG')
+            with Image.open('resources/imgs/df_perfomance.PNG') as im:
+                st.image(im, caption=None, width=None, use_column_width=False, clamp=False, channels='RGB', format='PNG')
+            
 
     elif choice=='Data Exploritory Analysis':
         st.title("Data Exploritory Analysis")
         task1 = ['Number of entries per class graph','Number of entries per class table']
         choice_D= st.sidebar.selectbox("Choose Activity",task1)
         if choice_D=='Number of entries per class graph':
-            image1 = Image.open('resources/imgs/num_per_class.PNG')
-            st.image(image1, caption=None, width=None, use_column_width=False, clamp=False, channels='RGB', format='PNG')
+            with Image.open('resources/imgs/num_per_class.PNG') as im:
+                st.image(im, caption=None, width=None, use_column_width=False, clamp=False, channels='RGB', format='PNG')
         if choice_D=='Number of entries per class table':
-            image1 = Image.open('resources/imgs/df_num_perclass.PNG')
-            st.image(image1, caption=None, width=None, use_column_width=False, clamp=False, channels='RGB', format='PNG')
+            with Image.open('resources/imgs/df_num_perclass.PNG') as im:
+                st.image(im, caption=None, width=None, use_column_width=False, clamp=False, channels='RGB', format='PNG')
+            
 
 
     elif choice=='Prediction':
